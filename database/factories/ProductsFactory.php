@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use App\Models\Brands;
 use App\Models\Categories;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -21,10 +22,10 @@ class ProductsFactory extends Factory
         return [
             'category_id' => Categories::factory(),
             'brand_id' => Brands::factory(),
-            'name' => str_random(8),
-            'cost' => random(1000,10000),
-            'amount' => random(10,100),
-            'description' => str_random(50)
+            'name' => Str::random(10),
+            'cost' => $this->faker->numberBetween(10000,100000),
+            'amount' => $this->faker->numberBetween(10,100),
+            'description' => Str::random(10),
         ];
     }
 }

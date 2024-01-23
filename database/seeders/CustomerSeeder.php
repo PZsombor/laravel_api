@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Customer;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,17 +15,14 @@ class CustomerSeeder extends Seeder
     {
         Customer::factory()
             ->count(5)
-            ->hasOrders(1)
             ->create();
 
         Customer::factory()
             ->count(3)
-            ->hasOrders(2)
             ->create();
 
         Customer::factory()
             ->count(1)
-            ->hasOrders(3)
             ->create();
     }
 }

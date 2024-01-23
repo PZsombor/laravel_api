@@ -21,7 +21,7 @@ class OrdersFactory extends Factory
         return [
             'customer_id' => Customer::factory(),
             'payment_id' => Payment::factory(),
-            'order_date'
+            'order_date' => $this->faker->dateTimeThisDecade(),
         ];
     }
 }

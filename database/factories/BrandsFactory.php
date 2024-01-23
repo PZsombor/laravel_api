@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class BrandsFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => str_random(10)
+            'name' => $this->faker->String::random(10),
         ];
     }
 }
