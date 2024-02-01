@@ -18,21 +18,25 @@ class CustomerFactory extends Factory
      */
     public function definition(): array
     {
-        $type = $this->faker->randomElement(['I', 'B']);
-        $county = $this->faker->randomElement(['Bács-Kiskun', 'Baranya', 'Békés', 'Borsod-Abaúj-Zemplén', 'Csongrád-Csanád', 'Fejér', 'Győr-Moson-Sopron', 'Hajdú-Bihar', 'Heves', 'Jász-Nagykun-Szolnok', 'Komárom-Esztergom', 'Nógrád', 'Pest', 'Somogy', 'Szabolcs-Szatmár-Beger', 'Tolna', 'Vas', 'Veszprém', 'Zala']);
-        $city; //kéne xd
-        $admin = $this->faker->randomElement(['True', 'False']);
+        $name = $this->faker->name();
+        $email = $this->faker->email();
+        $password = Str::random(10);
+        $address = Str::random(10);
+        $county = $this->faker->randomElement(['Kecskemét', 'Pécs', 'Békéscsaba', 'Miskolc', 'Szeged', 'Székesfehérvár', 'Győr', 'Debrecen', 'Eger', 'Szolnok', 'Tatabánya', 'Salgótarján', 'Budapest', 'Kaposvár', 'Nyíregyháza', 'Szekszárd', 'Szombathely', 'Veszprém', 'Zalaegerszeg']);
+        $city = $this->faker->randomElement(['Bács-Kiskun', 'Baranya', 'Békés', 'Borsod-Abaúj-Zemplén', 'Csongrád-Csanád', 'Fejér', 'Győr-Moson-Sopron', 'Hajdú-Bihar', 'Heves', 'Jász-Nagykun-Szolnok', 'Komárom-Esztergom', 'Nógrád', 'Pest', 'Somogy', 'Szabolcs-Szatmár-Beger', 'Tolna', 'Vas', 'Veszprém', 'Zala']);
+        $postal_code = $this->faker->numberBetween(1000, 9999);
+        $phone = Str::random(10);
+
         return [
-            'name' => Str::random(10),
-            'type' => $type,
-            'email' => $this->faker->email(),
-            'password' => Str::random(10),
-            'address' => Str::random(10),
+            'name' => $name,
+            'email' => $email,
+            'password' => $password,
+            'address' => $address,
             'county' => $county,
-            'city' => Str::random(10),
-            'postal_code' => $this->faker->numberBetween(1000,9999),
-            'phone' => Str::random(10),
-            'admin' => $admin
+            'city' => $city,
+            'postal_code' => $postal_code,
+            'phone' => $phone,
+            'admin' => 'false'
         ];
     }
 }
