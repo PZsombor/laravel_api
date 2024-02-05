@@ -19,9 +19,10 @@ class OrdersFactory extends Factory
     public function definition(): array
     {
         return [
-            'customer_id' => Customer::factory(),
-            'payment_id' => Payment::factory(),
+            'customer_id' => $this->faker->numberBetween(2,21),
+            'payment_id' => $this->faker->numberBetween(1,3),
             'order_date' => $this->faker->dateTimeThisDecade(),
+            //'paid_date' => $payment_id == 1 ? $this->faker->dateTimeThisDecade() : NULL
         ];
     }
 }
